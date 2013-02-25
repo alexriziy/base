@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
+        "propel/propel-bundle": "1.1.*",
         "twig/extensions": "1.0.*@dev",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",

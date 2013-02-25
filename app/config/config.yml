@@ -36,6 +36,14 @@ assetic:
         #yui_css:
         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
+propel:
+    #logging:   %kernel.debug%
+    build_properties: %propel_build_properties%
+    dbal:
+        connections: %propel_dbal_connections%
+        default_connection: default
+
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
