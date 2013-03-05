@@ -2,6 +2,16 @@ parameters:
 #    triangulum_website.example.class: Triangulum\WebsiteBundle\Example
 
 services:
-#    triangulum_website.example:
-#        class: %triangulum_website.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    twig.extension:
+        class: Triangulum\WebsiteBundle\Extension\TriangulumTwigExtension
+        tags:
+            -  { name: twig.extension }
+
+    controller_helper:
+        class: Triangulum\WebsiteBundle\Helper\ControllerHelper
+        arguments:
+            config: %config%
+            translator: @translator
+            mailer: @mailer
+            templating: @templating
+            security: @security.context
