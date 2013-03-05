@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="default" namespace="Triangulum\WebsiteBundle\Model" defaultIdMethod="native">
-    <table name="book">
-        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="title" type="varchar" primaryString="1" size="100" />
-        <column name="ISBN" type="varchar" size="20" />
-        <column name="author_id" type="integer" />
-        <foreign-key foreignTable="author">
-            <reference local="author_id" foreign="id" />
+    <table name="user" phpName="User" idMethod="native">
+        <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="datetime" phpName="DateTime" type="INTEGER" required="true"/>
+        <column name="username" phpName="UserName" type="VARCHAR" size="300" required="true"/>
+        <column name="password" phpName="Password" type="VARCHAR" size="300" required="true"/>
+        <column name="email" phpName="Email" type="VARCHAR" size="300" required="true"/>
+        <column name="phone" phpName="Phone" type="VARCHAR" size="300" required="true"/>
+        <column name="groupId" phpName="GroupId" type="INTEGER" />
+        <foreign-key foreignTable="group" onDelete="CASCADE">
+            <reference local="groupId" foreign="id"/>
         </foreign-key>
     </table>
-    <table name="author">
-        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="first_name" type="varchar" size="100" />
-        <column name="last_name" type="varchar" size="100" />
+
+    <table name="group" phpName="Group" idMethod="native">
+        <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="parentId" phpName="ParentId" type="INTEGER"/>
+        <column name="name" phpName="Name" type="VARCHAR" size="300" required="true"/>
+        <column name="role" phpName="Role" type="VARCHAR" size="300" required="true"/>
     </table>
 </database>
